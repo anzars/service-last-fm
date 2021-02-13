@@ -1,16 +1,16 @@
 const lastfm = require('../config/config') ;
 const axios = require('axios');
 
-exports.getArtists = async ()=>{
+exports.getArtists = async (country)=>{
      return new Promise( resolve=>{
-      lastfm.geoTopArtists( {country: 'India'},async (err, data) => { 
+      lastfm.geoTopArtists( {country: country},async (err, data) => { 
         resolve(data) ;
       })
     }
   )};
-  exports.gettopTracks = async ()=>{
+  exports.getTopTracks = async (artist)=>{
     return new Promise( resolve=>{
-     lastfm.artistTopTracks( {name: 'Arjit'},async (err, data) => { 
+     lastfm.artistTopTracks( {name: artist},async (err, data) => { 
        console.log(data);
        resolve(data) ;
      })
