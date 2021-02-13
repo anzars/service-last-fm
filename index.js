@@ -1,32 +1,18 @@
+const routes = require('./routes/routes');
 const express = require('express');
 const app = express();
-app.use(express.json());
 const LastFM = require('last-fm')
-const lastfm = new LastFM('fd88c46c00f820169c8d37a53f2bccb2', { userAgent: 'MyApp/1.0.0 (http://example.com)' })
-const axios = require('axios');
+const lastfm = new LastFM('fd88c46c00f820169c8d37a53f2bccb2', { userAgent: 'MyApp/1.0.0 (http://example.com)' });
 
-axios.get('https://api.printful.com/countries')
-    .then(response => {
-        console.log(response.data.result[0]);
-        
-       
-    })
-    .catch(error => {
-        console.log(error);
-    });
-
-
-/* lastfm.geoTopArtists( {country: 'India'}, (err, data) => { 
-    if (err) console.error(err)
-    else console.log(data)
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
 });
- 
-lastfm.artistTopTracks({name:'Arjit'}, (err, data) => {
-    if (err) console.error(err)
-    else console.log(data)
-}); */
 
-
+app.use(express.json());
+app.use('/api/', routes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
