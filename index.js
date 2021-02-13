@@ -5,9 +5,9 @@ const LastFM = require('last-fm')
 const lastfm = new LastFM('fd88c46c00f820169c8d37a53f2bccb2', { userAgent: 'MyApp/1.0.0 (http://example.com)' })
 const axios = require('axios');
 
-axios.get('https://api.first.org/data/v1/countries')
+axios.get('https://api.printful.com/countries')
     .then(response => {
-        console.log(response.data[0].country);
+        console.log(response.data.result[0]);
         
        
     })
@@ -16,7 +16,7 @@ axios.get('https://api.first.org/data/v1/countries')
     });
 
 
-lastfm.geoTopArtists( {country: 'India'}, (err, data) => { 
+/* lastfm.geoTopArtists( {country: 'India'}, (err, data) => { 
     if (err) console.error(err)
     else console.log(data)
 });
@@ -24,7 +24,7 @@ lastfm.geoTopArtists( {country: 'India'}, (err, data) => {
 lastfm.artistTopTracks({name:'Arjit'}, (err, data) => {
     if (err) console.error(err)
     else console.log(data)
-});
+}); */
 
 
 
