@@ -6,6 +6,7 @@ exports.getArtists = async(country) => {
 exports.getTopTracks = async(artist) => {
  return await data.getTopTracks(artist);
 }
+
 exports.getCountries = async() => {
  return await data.getCountries();
 }

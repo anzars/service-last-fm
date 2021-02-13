@@ -6,6 +6,7 @@ exports.getArtists = async (country)=>{
       lastfm.geoTopArtists( {country: country},async (err, data) => { 
         resolve(data) ;
       })
+      
     }
   )};
   exports.getTopTracks = async (artist)=>{

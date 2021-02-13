@@ -11,6 +11,7 @@ router.get('/TopTracks',async(req,res)=>{
     res.status(200).json(toptracks);
     }
 );
+
 router.get('/getCountries',async(req,res)=>{
     let countries = await models.getCountries();
     res.status(200).json(countries);
