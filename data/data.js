@@ -24,7 +24,7 @@ exports.getArtists = async (country)=>{
     axios.get('https://api.printful.com/countries')
     .then(response => {
        console.log(response);
-       resolve (response.data);
+       resolve (response.data.result);
       })
     .catch(error => {
         console.log(error);
